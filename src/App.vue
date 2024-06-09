@@ -1,30 +1,23 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+    <nav class="center top-menu">
+      <router-link :to="{ name: 'home' }"><span class="logo">Interno</span></router-link>
+      <ul class="navigation">
+        <li class="navigation-item" id="nav-home">
+          <router-link :to="{ name: 'home' }">Home</router-link>
+        </li>
+<!--        <li class="navigation-item" id="nav-project">-->
+<!--          <router-link :to="{ name: 'projects' }">Projects</router-link>-->
+<!--        </li>-->
+        <li class="navigation-item" id="nav-blog">
+          <router-link :to="{ name: 'articles' }">Blog</router-link>
+        </li>
+      </ul>
+    </nav>
+    <router-view/>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<style lang="sass">
 
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
 </style>
+<script setup lang="ts">
+</script>
