@@ -1,0 +1,16 @@
+@import "vars"
+
+@mixin border-radius($positions, $radius)
+  @each $position in $positions
+    @if $position == tl
+      border-top-left-radius: $radius
+    @else if $position == tr
+      border-top-right-radius: $radius
+    @else if $position == br
+      border-bottom-right-radius: $radius
+    @else if $position == bl
+      border-bottom-left-radius: $radius
+    @else if $position == al
+      border-radius: $radius
+    @else if $position == none
+      border-bottom-left-radius: 0

@@ -1,0 +1,346 @@
+@import "vars"
+@import "breakpoints"
+@import "mixins"
+.center
+  padding-left: calc(50% - $desktopWidth / 2) !important
+  padding-right: calc(50% - $desktopWidth / 2) !important
+
+body
+  font-family: $basic-family, sans-serif
+
+.no_top-margin
+  margin-top: 0 !important
+  padding-top: 0 !important
+
+.top-menu
+  display: flex
+  flex-direction: row
+  align-items: center
+  justify-content: space-between
+  padding-top: 48px
+  padding-bottom: 48px
+
+.logo
+  display: flex
+  flex-direction: row
+  font-family: $heading-family
+  font-weight: 400
+  font-size: 40px
+  line-height: 125%
+  color: #292f36
+
+  &:before
+    display: block
+    width: 34px
+    content: url('data:image/svg+xml,<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 34.0003H13.4588V24.499C13.4588 22.4853 15.0898 20.8543 17.1035 20.8543C19.1172 20.8543 20.7482 22.4853 20.7482 24.499V34.0003H33.9975V0C15.2211 0 0 15.2211 0 34.0003Z" fill="%23CDA274" /></svg>')
+    margin-right: 10px
+    margin-top: 3px
+
+.navigation
+  list-style-type: none
+  display: flex
+  flex-direction: row
+  gap: 48px
+
+  &-item
+    font-weight: 400
+    font-size: 20px
+    line-height: 125%
+    text-align: center
+    color: #292f36
+
+.main
+  display: flex
+  height: 768px
+  max-width: 1200px
+  background-image: url("../../img/Banner.jpg")
+  background-position: 50% 50%
+  background-origin: border-box
+  background-repeat: no-repeat
+  align-items: center
+
+  &__txt-box
+    display: flex
+    flex-direction: column
+    margin-left: 52px
+    max-width: 450px
+    gap: 20px
+
+  &__heading
+    font-family: $heading-family
+    font-weight: 400
+    font-size: 65px
+    line-height: 125%
+    color: #292f36
+
+  &__txt
+    font-weight: 400
+    font-size: 22px
+    line-height: 150%
+    letter-spacing: 0.01em
+    color: #4d5053
+
+#get-started_btn
+  display: flex
+  flex-direction: row
+  border: none
+  border-radius: 18px
+  padding: 28px 48px
+  width: fit-content
+  box-shadow: 0 10px 20px 0 rgba(192, 192, 192, 0.35)
+  background: #292f36
+  font-family: $basic-family
+  font-weight: 600
+  font-size: 18px
+  line-height: 125%
+  letter-spacing: 0.02em
+  text-align: center
+  color: #fff
+
+  & span
+    display: flex
+    gap: 10px
+
+    &:after
+      margin-top: 2px
+      content: url('data:image/svg+xml,<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 8.43542L14.7232 8.29857M9.61818 1.91138L16.1412 8.43436L9.48677 15.0887" stroke="%23CDA274" stroke-width="2" stroke-linecap="square" stroke-linejoin="round" /></svg>')
+
+.section-heading
+  display: flex
+  flex-direction: column
+  gap: 8px
+  padding: 64px 20% 0
+  grid-column: 1 / -1
+
+  &__title
+    font-family: $heading-family
+    font-weight: 400
+    font-size: 50px
+    line-height: 125%
+    letter-spacing: 0.02em
+    text-align: center
+    color: #292f36
+
+  &__txt
+    font-weight: 400
+    font-size: 22px
+    line-height: 150%
+    letter-spacing: 0.01em
+    text-align: center
+    color: #4d5053
+
+.gallery
+  display: grid
+  grid-template-columns: repeat(2, minmax(525px, 560px))
+  column-gap: 100px
+  row-gap: 64px
+
+  &__item
+    gap: 24px
+
+    &-bottom
+      display: flex
+      flex-direction: row
+      justify-content: space-between
+      padding-top: 24px
+
+  &__image
+    height: 525px
+    overflow: hidden
+    display: flex
+    align-items: center
+    justify-content: center
+
+
+.gallery__description
+  display: flex
+  flex-direction: column
+  gap: 4px
+
+.description
+  &__title
+    font-family: $heading-family
+    font-weight: 400
+    font-size: 25px
+    line-height: 125%
+    letter-spacing: 0.02em
+    color: #292f36
+
+  &__txt
+    font-weight: 400
+    font-size: 22px
+    line-height: 150%
+    letter-spacing: 0.01em
+    color: #4d5053
+
+//Круглая кнопка
+.round__btn
+  background-image: url('data:image/svg+xml,<svg width="10" height="20" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 19L9 10L1 1" stroke="%23292F36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>')
+  background-position: center
+  background-repeat: no-repeat
+  background-color: $colorAccent
+  border: none
+  border-radius: 50%
+
+.px
+  &_70
+    min-width: 70px
+    height: 70px
+
+  &_52
+    min-width: 52px
+    height: 52px
+
+
+.counter
+  padding: 152px 0
+  background-color: $colorAccent
+  display: grid
+  grid-template-columns: repeat(4, 1fr)
+  margin: 96px 0
+
+  &__item
+    display: flex
+    flex-direction: column
+    gap: 16px
+    align-items: center
+    border-right: solid 1px $colorAccentDark
+
+    &:last-child
+      border-right: none
+
+  &__number
+    font-family: $heading-family
+    font-weight: 400
+    font-size: 85px
+    line-height: 125%
+    letter-spacing: 0.02em
+    color: $colorAccentDark
+
+  &__text
+    font-weight: 400
+    font-size: 22px
+    line-height: 150%
+    letter-spacing: 0.01em
+    color: $colorBlack
+
+.blog
+  display: grid
+  grid-template-columns: repeat(3, 1fr)
+  column-gap: 28px
+  row-gap: 52px
+
+  &__item
+    display: flex
+    flex-direction: column
+    box-sizing: border-box
+    padding: 20px
+    border: 1px solid $colorGrayLight
+
+    &-bottom
+      display: flex
+      justify-content: space-between
+      align-items: center
+      padding: 30px 0 40px
+
+  &__date
+    font-weight: 400
+    font-size: 16px
+    line-height: 150%
+    letter-spacing: 0.01em
+    text-transform: capitalize
+    color: $colorBlackLight
+
+  &__image
+    width: 340px
+    height: 290px
+    position: relative
+    @include border-radius((tr, tl), 52px)
+    overflow: hidden
+    margin-bottom: 40px
+
+  &__topic
+    position: absolute
+    z-index: 5
+    background-color: white
+    bottom: 20px
+    left: 20px
+    @include border-radius((tr, tl, br), 8px)
+    display: flex
+    padding: 8px 12px
+
+    &-txt
+      font-weight: 400
+      font-size: 16px
+      line-height: 150%
+      letter-spacing: 0.01em
+      text-transform: capitalize
+      color: $colorBlackLight
+
+.footer
+  display: grid
+  grid-template-columns: 3fr 2fr 2fr
+  column-gap: 100px
+  font-weight: 400
+  font-size: 22px
+  line-height: 150%
+  letter-spacing: 0.01em
+  color: $colorBlackLight
+
+  &__item
+    display: flex
+    flex-direction: column
+    margin-top: 96px
+
+    &-text
+      margin-top: 16px
+      margin-bottom: 32px
+
+  &__list-item
+    margin-bottom: 42px
+
+  &__heading
+    font-family: $heading-family
+    font-weight: 400
+    font-size: 25px
+    line-height: 125%
+    color: $colorBlack
+    margin-bottom: 42px
+
+  &__logos
+    display: flex
+    flex-direction: row
+    gap: 32px
+
+.tl
+  &_70
+    @include border-radius((tl), 70px)
+
+.tr
+  &_70
+    @include border-radius((tr), 70px)
+
+.br
+  &_70
+    @include border-radius((br), 70px)
+
+.bl
+  &_70
+    @include border-radius((bl), 70px)
+
+.radius_all
+  @include border-radius((al), 70px)
+
+  &_64
+    @include border-radius((al), 64px)
+
+  &_52
+    @include border-radius((al), 52px)
+
+.top-gap_96
+  margin-top: 96px
+  padding-bottom: 96px
+
+.domashka
+  font-weight: 800
+  color: darkred
