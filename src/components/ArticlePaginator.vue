@@ -1,26 +1,7 @@
 <template>
   <div>
-    <div class="paginator">
-      <button :disabled="currentPage <= 0" @click="currentPage--">
-        Previous
-      </button>
 
-      <!-- Page number buttons -->
-      <button
-          v-for="page in surroundingPages"
-          :key="page"
-          @click="goToPage(page)"
-          :class="{ 'current-page': currentPage === page }"
-      >
-        {{ page + 1 }}
-      </button>
-
-      <button :disabled="currentPage >= pageCount - 1" @click="currentPage++">
-        Next
-      </button>
-
-    </div>
-    <div class="articles">
+    <div class="blog">
       <ArticleCard
           v-for="article in paginatedArticles"
           :key="article.id"
@@ -28,14 +9,32 @@
       />
     </div>
   </div>
+  <div class="paginator">
+    <button class="round__btn px_52" :disabled="currentPage <= 0" @click="currentPage--">
+    </button>
+
+    <!-- Page number buttons -->
+    <button class="round__btn px_52"
+        v-for="page in surroundingPages"
+        :key="page"
+        @click="goToPage(page)"
+        :class="{ 'current-page': currentPage === page }"
+    >
+      {{ page + 1 }}
+    </button>
+
+    <button class="round__btn px_52" :disabled="currentPage >= pageCount - 1" @click="currentPage++">
+    </button>
+
+  </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
 import ArticleCard from '@/components/ArticleCard.vue';
 
 export default {
   name: 'Paginator',
+  props: ['articles'],
   components: {
     ArticleCard
   },
@@ -46,21 +45,22 @@ export default {
     };
   },
   computed: {
-    ...mapState({
-      articles: state => state.articles.articles.sort((a, b) => b.id - a.id)
-    }),
     pageCount() {
       return Math.ceil(this.articles.length / this.perPage);
     },
     paginatedArticles() {
+      if (!this.articles) {
+        return [];
+      }
+
       const start = this.currentPage * this.perPage;
       const end = start + this.perPage;
-      return this.articles.slice(start, end); // Returns articles for the current page
+      return this.articles.slice(start, end);
     },
     surroundingPages() {
       const start = Math.max(this.currentPage - 1, 0);
       return Array.from(
-          { length: Math.min(3, this.pageCount - start) },
+          {length: Math.min(3, this.pageCount - start)},
           (_, i) => start + i
       );
     }

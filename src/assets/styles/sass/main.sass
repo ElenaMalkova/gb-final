@@ -7,6 +7,7 @@
 
 body
   font-family: $basic-family, sans-serif
+  padding-top: 150px
 
 .no_top-margin
   margin-top: 0 !important
@@ -14,11 +15,18 @@ body
 
 .top-menu
   display: flex
+  width: 1200px
   flex-direction: row
   align-items: center
   justify-content: space-between
   padding-top: 48px
   padding-bottom: 48px
+  position: fixed
+  z-index: 999
+  top: 0
+  background-color: $esLightTransparency
+  backdrop-filter: blur(10px)
+  -webkit-backdrop-filter: blur(10px)
 
 .logo
   display: flex
@@ -318,6 +326,7 @@ body
       letter-spacing: 0.01em
       text-transform: capitalize
       color: $colorBlackLight
+
 .flex_v
   display: flex
   flex-direction: column
@@ -371,7 +380,7 @@ body
 
     img
       height: 100%
-      width: auto
+      width: 100%
       position: absolute
       top: 50%
       transform: translateY(-50%)
@@ -385,10 +394,55 @@ body
       margin-left: auto
       margin-right: auto
 
+.paginator
+  grid-column: 1 / -1
+  display: flex
+  flex-direction: row
+  justify-content: center
+
+  button
+    background-image: none
+    margin: 0 16px
+
+    &:last-child
+      background-image: url('data:image/svg+xml,<svg width="10" height="20" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 19L9 10L1 1" stroke="%23292F36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>')
+
+    &:first-child
+      background-image: url('data:image/svg+xml,<svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.49999 15L1.55713 8.31429L7.49999 1.62857" stroke="%23292F36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>')
+
+
 .indent_left
   margin-right: auto
   margin-left: 0
   padding-left: 0
+
+.background-image_yok
+  background-image: none
+
+.l-r-paddings_yok
+  padding-right: 0
+  padding-left: 0
+
+.big-img
+  height: 100%
+  width: 100%
+
+.merge-grid
+  grid-column: 1 / -1
+.tag-cloud
+  display: flex
+  flex-direction: row
+  gap: 16px
+  flex-wrap: wrap
+  button
+    border: 1px solid $colorAccentDark
+    border-radius: 4px
+    padding: 4px 8px
+    background-color: white
+    &:hover
+      background-color: $colorAccent
+
+
 
 .tl
   &_70
@@ -419,6 +473,3 @@ body
   margin-top: 96px
   padding-bottom: 96px
 
-.domashka
-  font-weight: 800
-  color: darkred

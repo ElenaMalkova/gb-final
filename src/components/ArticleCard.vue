@@ -2,6 +2,11 @@
 export default {
   name: 'ArticleCard',
   props: ['article'],
+  methods: {
+    goToArticle(id) {
+      this.$router.push('/articles/' + id);
+    }
+  }
 };
 </script>
 
@@ -17,7 +22,7 @@ export default {
       <h3 class="description__title">{{ article.heading }}</h3>
       <div class="blog__item-bottom">
         <p class="blog__date">{{ article.date }}</p>
-        <button class="round__btn px_52"></button>
+        <button class="round__btn px_52" @click="goToArticle(article.id)"></button>
       </div>
     </article>
 
