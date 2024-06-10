@@ -9,6 +9,20 @@
         </div>
       </div>
     </section>
+    <!--Галерея Проектов-->
+    <section class="center gallery">
+      <div class="section-heading">
+        <h2 class="section-heading__title">Follow Our Projects</h2>
+        <p class="section-heading__txt">It is a long established fact that a reader will be distracted by the of
+          readable content of page lookings at its layouts points.</p>
+      </div>
+      <ProjectCard
+          v-for="project in projects"
+          :key="project.id"
+          :project="project"
+      />
+    </section>
+
     <!--Цифры на бежевом фоне-->
     <section class="counter center">
       <div class="counter__item">
@@ -28,6 +42,7 @@
         <p class="counter__txt">Happy Customers</p>
       </div>
     </section>
+
     <!--Статьи и новости-->
     <section class="center blog">
       <div class="section-heading no_top-margin">
@@ -35,11 +50,13 @@
         <p class="section-heading__txt">It is a long established fact that a reader will be distracted by the of
           readable content of page lookings at its layouts points.</p>
       </div>
+
       <ArticleCard
           v-for="article in articles"
           :key="article.id"
           :article="article"
       />
+
     </section>
   </div>
 </template>
@@ -47,15 +64,20 @@
 <script>
 import {mapState} from 'vuex';
 import ArticleCard from '@/components/ArticleCard.vue';
+import ProjectCard from '@/components/ProjectCard.vue';
 
 export default {
   name: 'HomeView',
   components: {
-    ArticleCard
+    ArticleCard,
+    ProjectCard
   },
   computed: {
     ...mapState({
       articles: state => state.articles.articles.slice(0, 3)
+    }),
+    ...mapState({
+      projects: state => state.projects.projects.slice(0, 4)
     })
   }
 }

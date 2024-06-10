@@ -27,7 +27,7 @@ body
   font-weight: 400
   font-size: 40px
   line-height: 125%
-  color: #292f36
+  color: $colorBlack
 
   &:before
     display: block
@@ -45,9 +45,16 @@ body
   &-item
     font-weight: 400
     font-size: 20px
-    line-height: 125%
+    line-height: 25px
     text-align: center
-    color: #292f36
+    color: $colorBlack
+    display: inline-block
+    box-sizing: border-box
+    border-bottom: 3px solid rgba(0, 0, 0, 0)
+
+    &:hover
+      border-bottom: 3px solid $colorAccentDark
+
 
 .main
   display: flex
@@ -237,7 +244,23 @@ body
     padding: 20px
     border: 1px solid $colorGrayLight
 
+    &_latest
+      display: grid
+      grid-template-columns: repeat(2, 1fr)
+      column-gap: 64px
+      height: 522px
+      grid-column: 1 / -1
+      border: 1px solid $colorGrayLight
+      padding: 20px
+
+      &-text
+        display: flex
+        flex-direction: column
+        justify-content: space-around
+
+
     &-bottom
+      //margin-top: auto
       display: flex
       justify-content: space-between
       align-items: center
@@ -259,6 +282,25 @@ body
     overflow: hidden
     margin-bottom: 40px
 
+    &_latest
+      position: relative
+      width: 100%
+      height: 100%
+      @include border-radius(al, 52px)
+      overflow: hidden
+
+      img
+        height: 100%
+        width: auto
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+
+    img
+      position: absolute
+      top: 50%
+      transform: translateY(-50%)
+
   &__topic
     position: absolute
     z-index: 5
@@ -276,6 +318,10 @@ body
       letter-spacing: 0.01em
       text-transform: capitalize
       color: $colorBlackLight
+.flex_v
+  display: flex
+  flex-direction: column
+  gap: 32px
 
 .footer
   display: grid
@@ -311,6 +357,38 @@ body
     display: flex
     flex-direction: row
     gap: 32px
+
+
+//Страница со статьями
+.a-page
+  &__banner
+    height: 360px
+    width: 100hw
+    display: flex
+    position: relative
+    justify-content: center
+    margin-bottom: 200px
+
+    img
+      height: 100%
+      width: auto
+      position: absolute
+      top: 50%
+      transform: translateY(-50%)
+
+    &_text-box
+      position: absolute
+      background-color: white
+      @include border-radius((tl, tr), 40px)
+      bottom: 0
+      padding: 40px 125px
+      margin-left: auto
+      margin-right: auto
+
+.indent_left
+  margin-right: auto
+  margin-left: 0
+  padding-left: 0
 
 .tl
   &_70
