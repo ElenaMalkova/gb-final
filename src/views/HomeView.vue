@@ -1,84 +1,39 @@
 <template>
   <div>
     <section class="center">
-      <div class="main radius_all">
-        <div class="main__txt-box">
-          <h1 class="main__heading">Let Your Home Be Unique</h1>
-          <p class="main__txt">There are many variations of the passages of lorem Ipsum fromavailable, majority.</p>
-          <button id="get-started_btn"><span>Get Started</span></button>
+      <div class="main-banner">
+        <div class="main-banner__text-box">
+          <h1 class="main-banner__heading">Помощь бездомным кошачьим на территории поселка Отрадное. Спасение,
+            передержка, лечение, пристройство.</h1>
         </div>
       </div>
     </section>
-    <!--Галерея Проектов-->
-    <section class="center gallery">
-      <div class="section-heading">
-        <h2 class="section-heading__title">Follow Our Projects</h2>
-        <p class="section-heading__txt">It is a long established fact that a reader will be distracted by the of
-          readable content of page lookings at its layouts points.</p>
-      </div>
-      <ProjectCard
-          v-for="project in projects"
-          :key="project.id"
-          :project="project"
-      />
-    </section>
 
-    <!--Цифры на бежевом фоне-->
-    <section class="counter center">
-      <div class="counter__item">
-        <h3 class="counter__number">12</h3>
-        <p class="counter__txt">Years Of Experiance</p>
-      </div>
-      <div class="counter__item">
-        <h3 class="counter__number">85</h3>
-        <p class="counter__txt">Success Project</p>
-      </div>
-      <div class="counter__item">
-        <h3 class="counter__number">15</h3>
-        <p class="counter__txt">Active Project</p>
-      </div>
-      <div class="counter__item">
-        <h3 class="counter__number">95</h3>
-        <p class="counter__txt">Happy Customers</p>
-      </div>
-    </section>
-
-    <!--Статьи и новости-->
-    <section class="center blog">
-      <div class="section-heading no_top-margin">
-        <h2 class="section-heading__title">Latest Blog Posts</h2>
-        <p class="section-heading__txt">It is a long established fact that a reader will be distracted by the of
-          readable content of page lookings at its layouts points.</p>
-      </div>
-
-      <ArticleCard
-          v-for="article in articles"
-          :key="article.id"
-          :article="article"
-      />
-
+    <!--Карточки котов-->
+    <section class="center def-paddings cat-catalogue">
+      <h2 class="center_content span-columns">Наши подопечные</h2>
+      <CatCard v-for="cat in getRandomCats" :cat="cat" :key="cat.id"></CatCard>
+      <button class="center_content span-columns btn_big-black" @mouseover="expandAndShadow" @mouseleave="shrinkAndNoShadow">Познакомиться со всеми</button>
     </section>
   </div>
 </template>
 
 <script>
-import {mapState} from 'vuex';
-import ArticleCard from '@/components/ArticleCard.vue';
-import ProjectCard from '@/components/ProjectCard.vue';
+import {mapGetters, mapState} from 'vuex';
+import CatCard from '@/components/CatCard.vue';
+import buttonEffectsMixin from "@/components/mixins/buttonEffectsMixin";
 
 export default {
+
   name: 'HomeView',
+  mixins: [buttonEffectsMixin],
   components: {
-    ArticleCard,
-    ProjectCard
+    CatCard,
   },
   computed: {
-    ...mapState({
-      articles: state => state.articles.articles.slice(0, 3)
-    }),
-    ...mapState({
-      projects: state => state.projects.projects.slice(0, 4)
-    })
-  }
+    ...mapGetters([
+      'getRandomCats', // map `this.getRandomCats` to `this.$store.getters.getRandomCats`
+    ]),
+  },
 }
 </script>

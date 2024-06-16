@@ -14,3 +14,25 @@
       border-radius: $radius
     @else if $position == none
       border-bottom-left-radius: 0
+
+@mixin box-shadow ($type)
+  @each $type in $type
+    @if $type == def
+      box-shadow: 0 12px 32px 0 rgba(0, 0, 0, 0.15)
+    @if $type == hov
+      box-shadow: 0 16px 40px 0 rgba(0, 0, 0, 0.25)
+    @if $type == nav
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.12)
+
+
+
+@mixin blur-background ($color)
+  @each $color in $color
+    @if $color == white
+      background-color: $esLightTransparency
+      backdrop-filter: blur(20px)
+      -webkit-backdrop-filter: blur(20px)
+    @if $color == black
+      background-color: $esBlackTransparency
+      backdrop-filter: blur(20px)
+      -webkit-backdrop-filter: blur(20px)

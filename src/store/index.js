@@ -1,19 +1,16 @@
-import { createStore } from 'vuex';
-import articles from "./modules/articles.js";
-import projects from "./modules/projects.js";
+// store/index.js
 
+import { createStore } from 'vuex'
+import cats from './modules/cat-cards.js'
 
-export default createStore({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
+const store = createStore({
+  state: {},
+  getters: {},
+  mutations: {},
+  actions: {},
   modules: {
-    articles,
-    projects,
+    cats,
   },
-});
+})
+
+export default store

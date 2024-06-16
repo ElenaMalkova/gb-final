@@ -1,9 +1,13 @@
-// index.js
 import {createRouter, createWebHistory} from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
-import ArticleView from "@/views/ArticleView.vue";
-import SingleArticleView from "@/views/SingleArticleView.vue";
-
+import CatsView from "@/views/CatsView.vue";
+import SingleCatView from "@/views/SingleCatView.vue";
+import NewsView from "@/views/NewsView.vue";
+import HelpfulView from "@/views/HelpfulView.vue";
+import SupportView from "@/views/SupportView.vue";
+import AdminCatForm from "@/components/AdminCatForm.vue";
+import ContactsView from "@/views/ContactsView.vue";
+import NotFound from "@/views/NotFound.vue";
 
 const routes = [
     {
@@ -12,14 +16,43 @@ const routes = [
         component: HomeView
     },
     {
-        path: "/articles",
-        name: "articles",
-        component: ArticleView,
+        path: "/cats",
+        name: "cats",
+        component: CatsView,
     },
     {
-        path: "/articles/:id",
-        name: "article",
-        component: SingleArticleView,
+        path: "/cat/:id",
+        name: "cat",
+        component: SingleCatView,
+    },
+    {
+        path: "/news",
+        name: "news",
+        component: NewsView,
+    },
+    {
+        path: "/helpful",
+        name: "helpful",
+        component: HelpfulView,
+    },
+    {
+        path: "/support",
+        name: "support",
+        component: SupportView,
+    },
+    {
+        path: "/contacts",
+        name: "contacts",
+        component: ContactsView,
+    },
+    {
+        path: "/admin",
+        name: "admin",
+        component: AdminCatForm,
+    },
+    {
+        path: "/:catchAll(.*)",
+        component: NotFound,
     },
 ];
 

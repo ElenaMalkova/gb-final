@@ -1,13 +1,128 @@
 @import "vars"
 @import "breakpoints"
 @import "mixins"
+@import "cat-card"
+@import "cat-card_big"
+
+
 .center
   padding-left: calc(50% - $desktopWidth / 2) !important
   padding-right: calc(50% - $desktopWidth / 2) !important
 
 body
   font-family: $basic-family, sans-serif
-  padding-top: 150px
+  padding-top: 100px
+  background-color: $colorWhite
+
+h2
+  font: 700 52px / 110% $basic-family
+  letter-spacing: 0.01em
+  color: $colorBlack
+
+button
+  transition: all 0.3s ease-out
+
+.flex-v_centered
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: flex-start
+
+.gap_24
+  gap: 24px
+
+.icon-box
+  width: 40px
+  height: 40px
+  display: flex
+  align-items: center
+  justify-content: center
+
+.span-columns
+  grid-column: 1 / -1
+
+
+.def-paddings
+  padding-top: 80px
+
+.center_content
+  margin-left: auto
+  margin-right: auto
+
+.btn
+  &_big-black
+    background-color: $colorBlack
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: row
+    @include border-radius((tl, tr, bl), $radius)
+    padding: 32px
+    width: 40%
+    height: 88px
+    font-weight: 700
+    font-size: 24px
+    letter-spacing: 0.01em
+    text-align: center
+    color: $colorWhite
+    transition: transform 0.3s ease-in, box-shadow 0.3s ease-in-out
+
+//Общие стили для всего сайта
+.page-title
+  font: 700 52px / 110% "Inter", sans-serif
+  letter-spacing: 0.01em
+  color: $colorBlack
+  display: flex
+  justify-content: center
+  flex-wrap: wrap
+  flex-direction: row
+  margin-bottom: 24px
+
+.text-box
+  display: flex
+  flex-wrap: wrap
+  align-items: flex-start
+  justify-content: flex-start
+  flex-direction: row
+  gap: 10px
+  @include border-radius((al), $radius)
+  @include box-shadow(def)
+  width: 100%
+  padding: 24px 48px
+  margin-top: 56px
+  margin-bottom: 56px
+  box-sizing: border-box
+  background-color: $colorWhite
+
+.big-text
+  font: 300 32px / 135% $basic-family
+  letter-spacing: 0.01em
+  color: $colorBlack
+
+.small-text
+  font: 300 20px / 135% $basic-family
+  letter-spacing: 0.01em
+  color: $colorBlack
+  span
+    margin-right: 16px
+    display: inline-block
+
+.text-center
+  justify-content: center
+  text-align: center
+.icon_24px
+  height: 28px
+  width: 28px
+  transform: translateY(7px)
+
+
+
+//Верхнее меню
+.logo
+  width: 100px
+  height: 100px
+  margin-right: auto
+  background-image: url("@/assets/img/logo.svg")
 
 .no_top-margin
   margin-top: 0 !important
@@ -15,461 +130,177 @@ body
 
 .top-menu
   display: flex
-  width: 1200px
-  flex-direction: row
   align-items: center
-  justify-content: space-between
-  padding-top: 48px
-  padding-bottom: 48px
+  flex-direction: row
+  width: 100vw
+  height: 100px
   position: fixed
   z-index: 999
   top: 0
-  background-color: $esLightTransparency
-  backdrop-filter: blur(10px)
-  -webkit-backdrop-filter: blur(10px)
+  @include blur-background(white)
+  @include box-shadow(nav)
 
-.logo
+.nav-bar
   display: flex
+  align-items: center
+  justify-content: space-between
   flex-direction: row
-  font-family: $heading-family
-  font-weight: 400
-  font-size: 40px
-  line-height: 125%
-  color: $colorBlack
-
-  &:before
-    display: block
-    width: 34px
-    content: url('data:image/svg+xml,<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 34.0003H13.4588V24.499C13.4588 22.4853 15.0898 20.8543 17.1035 20.8543C19.1172 20.8543 20.7482 22.4853 20.7482 24.499V34.0003H33.9975V0C15.2211 0 0 15.2211 0 34.0003Z" fill="%23CDA274" /></svg>')
-    margin-right: 10px
-    margin-top: 3px
+  width: 100%
 
 .navigation
-  list-style-type: none
   display: flex
+  align-items: center
+  justify-content: flex-end
   flex-direction: row
-  gap: 48px
+  gap: 24px
 
   &-item
-    font-weight: 400
-    font-size: 20px
-    line-height: 25px
-    text-align: center
-    color: $colorBlack
-    display: inline-block
+    display: flex
+    padding: 12px 0 8px
+    border-bottom: 4px solid $transparent
     box-sizing: border-box
-    border-bottom: 3px solid rgba(0, 0, 0, 0)
+    font: 400 16px $basic-family
+    letter-spacing: 0.06em
+    color: $colorBlack
+    justify-content: center
+    transition: all .3s ease-in
 
     &:hover
-      border-bottom: 3px solid $colorAccentDark
+      border-bottom: 4px solid $colorBlack
+      font-weight: 800
+      letter-spacing: 0.03em
+
+    &.router-link-exact-active, &.router-link-active
+      border-bottom: 4px solid $colorBlack
+      font-weight: 800
+      pointer-events: none
+      letter-spacing: 0.03em
 
 
-.main
+#our-pets
+  width: 154px
+
+#support-us
+  width: 190px
+
+#news
+  width: 88px
+
+#helpful
+  width: 98px
+
+#contacts
+  width: 96px
+
+//-----------------------КОНЕЦ ВЕРХНЕГО МЕНЮ-----------------------\\
+
+
+.main-banner
+  @include border-radius((bl, br), 48px)
+  width: 100%
+  height: 732px
+  background-image: url("@/assets/img/main_banner 1.jpg")
+  background-size: cover
+  overflow: hidden
   display: flex
-  height: 768px
-  max-width: 1200px
-  background-image: url("../../img/Banner.jpg")
-  background-position: 50% 50%
-  background-origin: border-box
-  background-repeat: no-repeat
-  align-items: center
-
-  &__txt-box
-    display: flex
-    flex-direction: column
-    margin-left: 52px
-    max-width: 450px
-    gap: 20px
-
-  &__heading
-    font-family: $heading-family
-    font-weight: 400
-    font-size: 65px
-    line-height: 125%
-    color: #292f36
-
-  &__txt
-    font-weight: 400
-    font-size: 22px
-    line-height: 150%
-    letter-spacing: 0.01em
-    color: #4d5053
-
-#get-started_btn
-  display: flex
+  flex-wrap: wrap
   flex-direction: row
-  border: none
-  border-radius: 18px
-  padding: 28px 48px
-  width: fit-content
-  box-shadow: 0 10px 20px 0 rgba(192, 192, 192, 0.35)
-  background: #292f36
-  font-family: $basic-family
-  font-weight: 600
-  font-size: 18px
-  line-height: 125%
-  letter-spacing: 0.02em
-  text-align: center
-  color: #fff
+  justify-content: flex-end
 
-  & span
-    display: flex
-    gap: 10px
-
-    &:after
-      margin-top: 2px
-      content: url('data:image/svg+xml,<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 8.43542L14.7232 8.29857M9.61818 1.91138L16.1412 8.43436L9.48677 15.0887" stroke="%23CDA274" stroke-width="2" stroke-linecap="square" stroke-linejoin="round" /></svg>')
-
-.section-heading
-  display: flex
-  flex-direction: column
-  gap: 8px
-  padding: 64px 20% 0
-  grid-column: 1 / -1
-
-  &__title
-    font-family: $heading-family
-    font-weight: 400
-    font-size: 50px
-    line-height: 125%
-    letter-spacing: 0.02em
-    text-align: center
-    color: #292f36
-
-  &__txt
-    font-weight: 400
-    font-size: 22px
-    line-height: 150%
-    letter-spacing: 0.01em
-    text-align: center
-    color: #4d5053
-
-.gallery
-  display: grid
-  grid-template-columns: repeat(2, minmax(525px, 560px))
-  column-gap: 100px
-  row-gap: 64px
-
-  &__item
-    gap: 24px
-
-    &-bottom
-      display: flex
-      flex-direction: row
-      justify-content: space-between
-      padding-top: 24px
-
-  &__image
-    height: 525px
-    overflow: hidden
+  &__text-box
+    height: 100%
+    width: 50%
+    @include blur-background(black)
     display: flex
     align-items: center
-    justify-content: center
-
-
-.gallery__description
-  display: flex
-  flex-direction: column
-  gap: 4px
-
-.description
-  &__title
-    font-family: $heading-family
-    font-weight: 400
-    font-size: 25px
-    line-height: 125%
-    letter-spacing: 0.02em
-    color: #292f36
-
-  &__txt
-    font-weight: 400
-    font-size: 22px
-    line-height: 150%
-    letter-spacing: 0.01em
-    color: #4d5053
-
-//Круглая кнопка
-.round__btn
-  background-image: url('data:image/svg+xml,<svg width="10" height="20" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 19L9 10L1 1" stroke="%23292F36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>')
-  background-position: center
-  background-repeat: no-repeat
-  background-color: $colorAccent
-  border: none
-  border-radius: 50%
-
-.px
-  &_70
-    min-width: 70px
-    height: 70px
-
-  &_52
-    min-width: 52px
-    height: 52px
-
-
-.counter
-  padding: 152px 0
-  background-color: $colorAccent
-  display: grid
-  grid-template-columns: repeat(4, 1fr)
-  margin: 96px 0
-
-  &__item
-    display: flex
-    flex-direction: column
-    gap: 16px
-    align-items: center
-    border-right: solid 1px $colorAccentDark
-
-    &:last-child
-      border-right: none
-
-  &__number
-    font-family: $heading-family
-    font-weight: 400
-    font-size: 85px
-    line-height: 125%
-    letter-spacing: 0.02em
-    color: $colorAccentDark
-
-  &__text
-    font-weight: 400
-    font-size: 22px
-    line-height: 150%
-    letter-spacing: 0.01em
-    color: $colorBlack
-
-.blog
-  display: grid
-  grid-template-columns: repeat(3, 1fr)
-  column-gap: 28px
-  row-gap: 52px
-
-  &__item
-    display: flex
-    flex-direction: column
+    padding: 40px
     box-sizing: border-box
-    padding: 20px
-    border: 1px solid $colorGrayLight
-
-    &_latest
-      display: grid
-      grid-template-columns: repeat(2, 1fr)
-      column-gap: 64px
-      height: 522px
-      grid-column: 1 / -1
-      border: 1px solid $colorGrayLight
-      padding: 20px
-
-      &-text
-        display: flex
-        flex-direction: column
-        justify-content: space-around
-
-
-    &-bottom
-      //margin-top: auto
-      display: flex
-      justify-content: space-between
-      align-items: center
-      padding: 30px 0 40px
-
-  &__date
-    font-weight: 400
-    font-size: 16px
-    line-height: 150%
-    letter-spacing: 0.01em
-    text-transform: capitalize
-    color: $colorBlackLight
-
-  &__image
-    width: 340px
-    height: 290px
-    position: relative
-    @include border-radius((tr, tl), 52px)
-    overflow: hidden
-    margin-bottom: 40px
-
-    &_latest
-      position: relative
-      width: 100%
-      height: 100%
-      @include border-radius(al, 52px)
-      overflow: hidden
-
-      img
-        height: 100%
-        width: auto
-        position: absolute
-        top: 50%
-        transform: translateY(-50%)
-
-    img
-      position: absolute
-      top: 50%
-      transform: translateY(-50%)
-
-  &__topic
-    position: absolute
-    z-index: 5
-    background-color: white
-    bottom: 20px
-    left: 20px
-    @include border-radius((tr, tl, br), 8px)
-    display: flex
-    padding: 8px 12px
-
-    &-txt
-      font-weight: 400
-      font-size: 16px
-      line-height: 150%
-      letter-spacing: 0.01em
-      text-transform: capitalize
-      color: $colorBlackLight
-
-.flex_v
-  display: flex
-  flex-direction: column
-  gap: 32px
-
-.footer
-  display: grid
-  grid-template-columns: 3fr 2fr 2fr
-  column-gap: 100px
-  font-weight: 400
-  font-size: 22px
-  line-height: 150%
-  letter-spacing: 0.01em
-  color: $colorBlackLight
-
-  &__item
-    display: flex
-    flex-direction: column
-    margin-top: 96px
-
-    &-text
-      margin-top: 16px
-      margin-bottom: 32px
-
-  &__list-item
-    margin-bottom: 42px
 
   &__heading
-    font-family: $heading-family
-    font-weight: 400
-    font-size: 25px
-    line-height: 125%
-    color: $colorBlack
-    margin-bottom: 42px
+    font: 100 52px $basic-family
+    color: $colorWhite
 
-  &__logos
+
+.cat-catalogue
+  display: grid
+  grid-template-columns: repeat(6, minmax(140px, 180px))
+  column-gap: 60px
+  row-gap: 60px
+
+
+//Стили для фильтров (выпадающие меню)
+.filter
+  &-box
     display: flex
     flex-direction: row
     gap: 32px
-
-
-//Страница со статьями
-.a-page
-  &__banner
-    height: 360px
-    width: 100hw
-    display: flex
-    position: relative
     justify-content: center
-    margin-bottom: 200px
+    align-items: flex-end
+    width: 100%
+    flex-wrap: wrap
+  &-label
+    margin-left: 20px
+    color: $colorGrayDark
+    font-size: 14px
+    font-weight: 400
 
-    img
-      height: 100%
-      width: 100%
-      position: absolute
-      top: 50%
-      transform: translateY(-50%)
+  &-menu
+    cursor: pointer
+    padding: 0
+    border-radius: 24px
+    position: relative
+    background: $colorWhite
+    @include box-shadow(nav)
+    margin-top: 8px
+    z-index: 11
+    font-size: 14px
+    font-weight: 600
 
-    &_text-box
-      position: absolute
-      background-color: white
-      @include border-radius((tl, tr), 40px)
-      bottom: 0
-      padding: 40px 125px
-      margin-left: auto
-      margin-right: auto
+  &-options
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    z-index: 10
+    cursor: pointer
+    padding: 0
+    border-radius: 24px
+    background: $colorWhite
+    @include box-shadow(nav)
+    color: $colorBlack
+    font-size: 14px
+    font-weight: 600
 
-.paginator
-  grid-column: 1 / -1
-  display: flex
-  flex-direction: row
-  justify-content: center
-
-  button
-    background-image: none
-    margin: 0 16px
-
-    &:last-child
-      background-image: url('data:image/svg+xml,<svg width="10" height="20" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 19L9 10L1 1" stroke="%23292F36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>')
-
-    &:first-child
-      background-image: url('data:image/svg+xml,<svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.49999 15L1.55713 8.31429L7.49999 1.62857" stroke="%23292F36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>')
-
-
-.indent_left
-  margin-right: auto
-  margin-left: 0
-  padding-left: 0
-
-.background-image_yok
-  background-image: none
-
-.l-r-paddings_yok
-  padding-right: 0
-  padding-left: 0
-
-.big-img
-  height: 100%
-  width: 100%
-
-.merge-grid
-  grid-column: 1 / -1
-.tag-cloud
-  display: flex
-  flex-direction: row
-  gap: 16px
-  flex-wrap: wrap
-  button
-    border: 1px solid $colorAccentDark
-    border-radius: 4px
-    padding: 4px 8px
-    background-color: white
+  &-option
+    padding: 12px 16px
+    cursor: pointer
+    border-radius: 24px
     &:hover
-      background-color: $colorAccent
+      background: $colorBlack
+      color: $colorWhite
 
+  &-text
+    font-size: 14px
+    font-weight: 600
+    background-color: $transparent
+.text_gray
+  color: $colorGrayDark
 
+.active-filter
+  background-color: $colorBlack
+  color: $colorWhite
 
-.tl
-  &_70
-    @include border-radius((tl), 70px)
+.reset-button
+  cursor: pointer
+  padding: 8px 16px
+  border-radius: 24px
+  background-color: $colorGrayLight
+  @include box-shadow(nav)
+  box-sizing: border-box
+  color: $colorBlack
+  height: 43px
+  font-weight: 600
 
-.tr
-  &_70
-    @include border-radius((tr), 70px)
-
-.br
-  &_70
-    @include border-radius((br), 70px)
-
-.bl
-  &_70
-    @include border-radius((bl), 70px)
-
-.radius_all
-  @include border-radius((al), 70px)
-
-  &_64
-    @include border-radius((al), 64px)
-
-  &_52
-    @include border-radius((al), 52px)
-
-.top-gap_96
-  margin-top: 96px
-  padding-bottom: 96px
-
+//.filter-menu.active-filter
+//  background-color: $colorBlack
+//  color: $colorWhite /* Optional: make the text color white for better contrast */

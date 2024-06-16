@@ -1,17 +1,40 @@
 <template>
-  <nav class="top-menu center">
-      <router-link :to="{ name: 'home' }"><span class="logo">Interno</span></router-link>
+  <nav class="top-menu">
+    <div class="nav-bar center">
+      <div class="logo">
+        <router-link :to="{ name: 'home' }">
+          <img src="@/assets/img/logo.svg" alt="Лого котодома" class="logotype">
+        </router-link>
+      </div>
       <ul class="navigation">
-        <li class="navigation-item" id="nav-home">
-          <router-link :to="{ name: 'home' }">Home</router-link>
-        </li>
-        <!--        <li class="navigation-item" id="nav-project">-->
-        <!--          <router-link :to="{ name: 'projects' }">Projects</router-link>-->
-        <!--        </li>-->
-        <li class="navigation-item" id="nav-blog">
-          <router-link :to="{ name: 'articles' }">Blog</router-link>
-        </li>
+        <router-link :to="{ name: 'cats' }" class="navigation-item">
+          <li id="our-pets">
+            НАШИ ПИТОМЦЫ
+          </li>
+        </router-link>
+        <router-link :to="{ name: 'support' }" class="navigation-item">
+          <li id="support-us">
+            ПОМОЧЬ КОТОДОМУ
+          </li>
+        </router-link>
+        <router-link :to="{ name: 'news' }" class="navigation-item">
+          <li id="news">
+            НОВОСТИ
+          </li>
+        </router-link>
+        <router-link :to="{ name: 'helpful' }" class="navigation-item">
+          <li id="helpful">
+            ПОЛЕЗНОЕ
+          </li>
+        </router-link>
+        <router-link :to="{ name: 'contacts' }" class="navigation-item">
+          <li id="contacts">
+            КОНТАКТЫ
+          </li>
+        </router-link>
       </ul>
+    </div>
+
   </nav>
   <router-view/>
 
@@ -58,4 +81,5 @@
 
 </style>
 <script setup lang="ts">
+
 </script>
