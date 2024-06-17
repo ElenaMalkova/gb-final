@@ -9,13 +9,13 @@ export default {
             event.target.style.boxShadow = 'none';
         },
         expandImage() {
-            const img = this.$el.querySelector('.cat-card__img');
+            const img = this.$el.querySelector('.hover-img');
             if (img) {
                 img.style.transform = 'scale(1.1)';
             }
         },
         shrinkImage() {
-            const img = this.$el.querySelector('.cat-card__img');
+            const img = this.$el.querySelector('.hover-img');
             if (img) {
                 img.style.transform = 'scale(1)';
             }

@@ -58,7 +58,12 @@ const routes = [
 
 const router = createRouter({
     history: createWebHistory(),
-    routes
+    routes,
 });
+
+router.afterEach(() => {
+    window.scrollTo(0,0);
+});
+
 
 export default router;

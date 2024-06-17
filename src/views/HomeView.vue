@@ -12,8 +12,14 @@
     <!--Карточки котов-->
     <section class="center def-paddings cat-catalogue">
       <h2 class="center_content span-columns">Наши подопечные</h2>
-      <CatCard v-for="cat in getRandomCats" :cat="cat" :key="cat.id"></CatCard>
-      <button class="center_content span-columns btn_big-black" @mouseover="expandAndShadow" @mouseleave="shrinkAndNoShadow">Познакомиться со всеми</button>
+      <router-link v-for="cat in getRandomCats" :key="cat.id" :to="{ name: 'cat', params: { id: cat.id } }" class="span-columns__2">
+        <CatCard :cat="cat" />
+      </router-link>
+      <router-link :to="{ name: 'cats' }" class="span-columns">
+        <button class="center_content span-columns btn_big-black" @mouseover="expandAndShadow"
+                @mouseleave="shrinkAndNoShadow">Познакомиться со всеми
+        </button>
+      </router-link>
     </section>
   </div>
 </template>

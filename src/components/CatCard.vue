@@ -1,7 +1,7 @@
 <template>
-  <div class="cat-card" @mouseover="expandImage" @mouseleave="shrinkImage">
+  <div class="cat-card" @click="goToCatPage" @mouseover="expandImage" @mouseleave="shrinkImage">
     <div class="cat-card__image-box">
-      <img class="cat-card_big__img" :src="cat?.images?.[0]" alt="Картинка кота">
+      <img class="cat-card__img hover-img" :src="cat?.images?.[0]" alt="Картинка кота">
     </div>
     <div class="cat-card__name-box">
       <h3>{{ cat.name }}</h3>
@@ -48,6 +48,10 @@ export default {
   props: {
     cat: Object
   },
-  methods: {}
+  methods: {
+    goToCatPage() {
+      this.$router.push({name: 'cat', params: {id: this.cat.id}});
+    },
+  },
 }
 </script>

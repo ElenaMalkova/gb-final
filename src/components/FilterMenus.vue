@@ -10,7 +10,9 @@
           @mouseleave="dropdowns[key] = false"
           ref="dropdowns"
       >
-        <div class="filter-option"><span class="filter-text">{{ filter }}</span></div>
+        <div class="filter-option">
+          <span class="filter-text">{{ filter }}</span>
+        </div>
         <div class="filter-options" v-if="dropdowns[key]">
           <div
               class="filter-option"
@@ -23,7 +25,14 @@
         </div>
       </div>
     </div>
-    <button class="reset-button" @click="resetFilters"  @mouseover="expandAndShadow" @mouseleave="shrinkAndNoShadow">Отменить фильтры</button>
+    <button
+        class="reset-button"
+        @click="resetFilters"
+        @mouseover="expandAndShadow"
+        @mouseleave="shrinkAndNoShadow"
+    >
+      Отменить фильтры
+    </button>
   </div>
 </template>
 
@@ -59,30 +68,30 @@ export default {
       },
       options: {
         forHome: [
-          {label: 'Все', value: 'All'},
-          {label: 'Ищут дом', value: 'true'},
-          {label: 'Дикие', value: 'false'},
+          { label: 'Все', value: 'All' },
+          { label: 'Ищут дом', value: 'true' },
+          { label: 'Дикие', value: 'false' },
         ],
         age: [
-          {label: 'Любой', value: 'All'},
-          {label: 'Меньше года', value: 'less than a year'},
-          {label: '1—4 года', value: '1-4 years'},
-          {label: 'Больше 5 лет', value: 'more than 5 years'},
+          { label: 'Любой', value: 'All' },
+          { label: 'Меньше года', value: 'less than a year' },
+          { label: '1—4 года', value: '1-4 years' },
+          { label: 'Больше 5 лет', value: 'more than 5 years' },
         ],
         gender: [
-          {label: 'Любой', value: 'All'},
-          {label: 'Кот', value: 'male'},
-          {label: 'Кошка   ', value: 'female'},
+          { label: 'Любой', value: 'All' },
+          { label: 'Кот', value: 'male' },
+          { label: 'Кошка', value: 'female' },
         ],
         health: [
-          {label: 'Все', value: 'All'},
-          {label: 'Требует внимания', value: 'true'},
-          {label: 'Здоровье в норме', value: 'false'},
+          { label: 'Все', value: 'All' },
+          { label: 'Требует внимания', value: 'true' },
+          { label: 'Здоровье в норме', value: 'false' },
         ],
         helpWanted: [
-          {label: 'Все', value: 'All'},
-          {label: 'Нужна помощь', value: 'true'},
-          {label: 'Все хорошо', value: 'false'},
+          { label: 'Все', value: 'All' },
+          { label: 'Нужна помощь', value: 'true' },
+          { label: 'Все хорошо', value: 'false' },
         ],
       },
     };
@@ -155,7 +164,7 @@ export default {
     getMaxWidth(key) {
       const options = this.options[key];
       let maxWidth = 0;
-      options.forEach(option => {
+      options.forEach((option) => {
         const width = this.getTextWidth(option.label, '16px Arial');
         if (width > maxWidth) {
           maxWidth = width;

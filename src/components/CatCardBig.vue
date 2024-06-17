@@ -1,7 +1,7 @@
 <template>
   <div class="cat-card_big" @mouseover="expandImage" @mouseleave="shrinkImage">
     <div class="cat-card_big__image-box">
-      <img class="cat-card_big_big__img" :src="cat?.images?.[0]" alt="Картинка кота">
+      <img class="cat-card_big_big__img hover-img" :src="cat?.images?.[0]" alt="Картинка кота">
     </div>
     <div class="cat-card_big__description-box">
 
@@ -41,7 +41,7 @@
       </div>
       <div>
         <div class="help-wanted__box" v-if="cat.helpWanted">
-          {{ cat.helpDescription }}
+          <p>{{ cat.helpDescription }}</p>
         </div>
         <div  class="description">
         {{ cat.description }}

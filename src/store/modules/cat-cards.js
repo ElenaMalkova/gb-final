@@ -280,5 +280,7 @@ export default {
         femaleCats: state => state.cats.filter(cat => cat.gender === 'female').length,
         animalsLookingForHome: state => state.cats.filter(cat => cat.forHome).length,
         animalsNeedingHelp: state => state.cats.filter(cat => cat.helpWanted === true).length,
+        getCatById: (state) => (id) => state.cats.find(cat => cat.id === id),
+
     },
 }

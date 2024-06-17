@@ -22,24 +22,24 @@
     </div>
   </section>
 
-
   <!--Карточки котов-->
   <section class="center cat-catalogue">
     <div class="span-columns flex-v_centered gap_24">
       <FilterMenus @filters-changed="updateFilters"></FilterMenus>
     </div>
-    <CatCardBig v-for="cat in cats" :cat="cat" :key="cat.id"></CatCardBig>
+    <router-link v-for="cat in filteredCats" :key="cat.id" :to="{ name: 'cat', params: { id: cat.id } }" class="span-columns">
+      <CatCardBig :cat="cat" />
+    </router-link>
   </section>
 </template>
 
 <script>
-import {mapGetters, mapState} from 'vuex';
+import { mapGetters } from 'vuex';
 import CatCardBig from '@/components/CatCardBig.vue';
 import FilterMenus from '@/components/FilterMenus.vue';
 import buttonEffectsMixin from "@/components/mixins/buttonEffectsMixin";
 
 export default {
-
   name: 'CatsView',
   mixins: [buttonEffectsMixin],
   components: {
@@ -64,14 +64,22 @@ export default {
     filteredCats() {
       return this.cats.filter(cat => {
         return (
-            (this.filters.forHome === 'Все' || (this.filters.forHome === 'Ищут дом' && cat.forHome) || (this.filters.forHome === 'Дикие' && !cat.forHome)) &&
+            (this.filters.forHome === 'Все' ||
+                (this.filters.forHome === 'Ищут дом' && cat.forHome) ||
+                (this.filters.forHome === 'Дикие' && !cat.forHome)) &&
             (this.filters.age === 'Любой' ||
                 (this.filters.age === 'Меньше года' && cat.age.years < 1) ||
                 (this.filters.age === '1—4 года' && cat.age.years >= 1 && cat.age.years <= 4) ||
-                (this.filters.age === 'Больше 5 лет' && cat.age.years > 5)) &&
-            (this.filters.gender === 'Любой' || this.filters.gender === cat.gender) &&
-            (this.filters.health === 'Все' || (this.filters.health === 'Требует внимания' && !cat.health) || (this.filters.health === 'Здоровье в норме' && cat.health)) &&
-            (this.filters.helpWanted === 'Все' || (this.filters.helpWanted === 'Нужна помощь' && cat.helpWanted) || (this.filters.helpWanted === 'Все хорошо' && !cat.helpWanted))
+                (this.filters.age === 'Больше 5 лет' && cat.age.years >= 5)) &&
+            (this.filters.gender === 'Любой' ||
+                (this.filters.gender === 'Кот' && cat.gender === 'male') ||
+                (this.filters.gender === 'Кошка' && cat.gender === 'female')) &&
+            (this.filters.health === 'Все' ||
+                (this.filters.health === 'Требует внимания' && cat.health) ||
+                (this.filters.health === 'Здоровье в норме' && !cat.health)) &&
+            (this.filters.helpWanted === 'Все' ||
+                (this.filters.helpWanted === 'Нужна помощь' && cat.helpWanted) ||
+                (this.filters.helpWanted === 'Все хорошо' && !cat.helpWanted))
         );
       });
     },
@@ -96,5 +104,9 @@ export default {
       this.filters = newFilters;
     },
   },
-}
+};
 </script>
+
+<style scoped>
+/* ваш CSS */
+</style>
