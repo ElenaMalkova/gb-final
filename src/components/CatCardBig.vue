@@ -1,7 +1,8 @@
 <template>
   <div class="cat-card_big" @mouseover="expandImage" @mouseleave="shrinkImage">
     <div class="cat-card_big__image-box">
-      <img class="cat-card_big_big__img hover-img" :src="cat?.images?.[0]" alt="Картинка кота">
+      <img class="cat-card_big__img hover-img"
+           :src="cat?.images?.[0]" alt="Картинка кота">
     </div>
     <div class="cat-card_big__description-box">
 

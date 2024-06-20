@@ -27,7 +27,11 @@
     <div class="span-columns flex-v_centered gap_24">
       <FilterMenus @filters-changed="updateFilters"></FilterMenus>
     </div>
-    <router-link v-for="cat in filteredCats" :key="cat.id" :to="{ name: 'cat', params: { id: cat.id } }" class="span-columns">
+    <router-link
+        v-for="cat in filteredCats"
+        :key="cat.id"
+        :to="{ name: 'cat', params: { id: cat.id } }"
+        class="span-columns">
       <CatCardBig :cat="cat" />
     </router-link>
   </section>

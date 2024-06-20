@@ -1,47 +1,47 @@
 <template>
-  <nav class="top-menu">
-    <div class="nav-bar center">
-      <div class="logo">
-        <router-link :to="{ name: 'home' }">
-          <img src="@/assets/img/logo.svg" alt="Лого котодома" class="logotype">
-        </router-link>
+  <div class="content">
+    <nav class="top-menu">
+      <div class="nav-bar center">
+        <div class="logo">
+          <router-link :to="{ name: 'home' }">
+            <img src="@/assets/img/logo.svg" alt="Лого котодома" class="logotype">
+          </router-link>
+        </div>
+        <ul class="navigation">
+          <router-link :to="{ name: 'cats' }" class="navigation-item">
+            <li id="our-pets">
+              НАШИ ПИТОМЦЫ
+            </li>
+          </router-link>
+          <router-link :to="{ name: 'support' }" class="navigation-item">
+            <li id="support-us">
+              ПОМОЧЬ КОТОДОМУ
+            </li>
+          </router-link>
+          <router-link :to="{ name: 'news' }" class="navigation-item">
+            <li id="news">
+              НОВОСТИ
+            </li>
+          </router-link>
+          <router-link :to="{ name: 'helpful' }" class="navigation-item">
+            <li id="helpful">
+              ПОЛЕЗНОЕ
+            </li>
+          </router-link>
+          <router-link :to="{ name: 'contacts' }" class="navigation-item">
+            <li id="contacts">
+              КОНТАКТЫ
+            </li>
+          </router-link>
+        </ul>
       </div>
-      <ul class="navigation">
-        <router-link :to="{ name: 'cats' }" class="navigation-item">
-          <li id="our-pets">
-            НАШИ ПИТОМЦЫ
-          </li>
-        </router-link>
-        <router-link :to="{ name: 'support' }" class="navigation-item">
-          <li id="support-us">
-            ПОМОЧЬ КОТОДОМУ
-          </li>
-        </router-link>
-        <router-link :to="{ name: 'news' }" class="navigation-item">
-          <li id="news">
-            НОВОСТИ
-          </li>
-        </router-link>
-        <router-link :to="{ name: 'helpful' }" class="navigation-item">
-          <li id="helpful">
-            ПОЛЕЗНОЕ
-          </li>
-        </router-link>
-        <router-link :to="{ name: 'contacts' }" class="navigation-item">
-          <li id="contacts">
-            КОНТАКТЫ
-          </li>
-        </router-link>
-      </ul>
-    </div>
 
-  </nav>
-  <router-view/>
-
+    </nav>
+    <router-view/>
+  </div>
 
   <footer class="center footer">
     <div class="footer__item">
-      <a class="logo">Interno</a>
       <p class="footer__item-text">It is a long established fact that a reader will be distracted lookings.</p>
       <div class="footer__logos">
         <svg width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -77,9 +77,10 @@
 </template>
 
 <style lang="sass">
-
+template
+  display: flex !important
 
 </style>
-<script setup lang="ts">
+<script>
 
 </script>

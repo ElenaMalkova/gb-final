@@ -4,11 +4,13 @@ export default {
         cats: [
             {
                 id: 1,
-                checkInDate: '2024-02-17',
+                checkInDate: '2024_02_17',
                 images: [
-                    require('@/assets/img/1g-i__cat-photo_01.jpg'),
-                    require('@/assets/img/1g-i__cat-photo_01.jpg'),
-                    require('@/assets/img/1g-i__cat-photo_01.jpg')
+                    require('@/assets/img/cats/cat-photo_01_01.jpg'),
+                    require('@/assets/img/cats/cat-photo_01_02.jpg'),
+                    require('@/assets/img/cats/cat-photo_01_03.jpg'),
+                    require('@/assets/img/cats/cat-photo_01_04.jpg'),
+                    require('@/assets/img/cats/cat-photo_01_05.jpg'),
                 ],
                 name: 'Кот',
                 forHome: true,
@@ -26,11 +28,14 @@ export default {
             },
             {
                 id: 2,
-                checkInDate: '2024-05-11',
+                checkInDate: '2024_05_11',
                 images: [
-                    require('@/assets/img/1g-i__cat-photo_02.jpg'),
-                    require('@/assets/img/1g-i__cat-photo_02.jpg'),
-                    require('@/assets/img/1g-i__cat-photo_02.jpg')
+                    require('@/assets/img/cats/cat-photo_02_01.jpg'),
+                    require('@/assets/img/cats/cat-photo_02_02.jpg'),
+                    require('@/assets/img/cats/cat-photo_02_03.jpg'),
+                    require('@/assets/img/cats/cat-photo_02_04.jpg'),
+                    require('@/assets/img/cats/cat-photo_02_05.jpg'),
+                    require('@/assets/img/cats/cat-photo_02_06.jpg')
                 ],
                 name: 'Мурка',
                 forHome: true,
@@ -48,11 +53,15 @@ export default {
             },
             {
                 id: 3,
-                checkInDate: '2024-01-27',
+                checkInDate: '2024_01_27',
                 images: [
-                    require('@/assets/img/1g-i__cat-photo_03.jpg'),
-                    require('@/assets/img/1g-i__cat-photo_03.jpg'),
-                    require('@/assets/img/1g-i__cat-photo_03.jpg')
+                    require('@/assets/img/cats/cat-photo_03_01.jpg'),
+                    require('@/assets/img/cats/cat-photo_03_02.jpg'),
+                    require('@/assets/img/cats/cat-photo_03_03.jpg'),
+                    require('@/assets/img/cats/cat-photo_03_04.jpg'),
+                    require('@/assets/img/cats/cat-photo_03_05.jpg'),
+                    require('@/assets/img/cats/cat-photo_03_06.jpg'),
+                    require('@/assets/img/cats/cat-photo_03_07.jpg')
                 ],
                 name: 'Барсик',
                 forHome: false,
@@ -70,11 +79,15 @@ export default {
             },
             {
                 id: 4,
-                checkInDate: '2024-04-23',
+                checkInDate: '2024_04_23',
                 images: [
-                    require('@/assets/img/1g-i__cat-photo_04.jpg'),
-                    require('@/assets/img/1g-i__cat-photo_04.jpg'),
-                    require('@/assets/img/1g-i__cat-photo_04.jpg')
+                    require('@/assets/img/cats/cat-photo_04_01.jpg'),
+                    require('@/assets/img/cats/cat-photo_04_02.jpg'),
+                    require('@/assets/img/cats/cat-photo_04_03.jpg'),
+                    require('@/assets/img/cats/cat-photo_04_04.jpg'),
+                    require('@/assets/img/cats/cat-photo_04_05.jpg'),
+                    require('@/assets/img/cats/cat-photo_04_06.jpg'),
+                    require('@/assets/img/cats/cat-photo_04_07.jpg')
                 ],
                 name: 'Снежок',
                 forHome: true,
@@ -92,11 +105,12 @@ export default {
             },
             {
                 id: 5,
-                checkInDate: '2024-04-22',
+                checkInDate: '2024_04_22',
                 images: [
-                    require('@/assets/img/1g-i__cat-photo_05.jpg'),
-                    require('@/assets/img/1g-i__cat-photo_05.jpg'),
-                    require('@/assets/img/1g-i__cat-photo_05.jpg')
+                    require('@/assets/img/cats/cat-photo_05_01.jpg'),
+                    require('@/assets/img/cats/cat-photo_05_02.jpg'),
+                    require('@/assets/img/cats/cat-photo_05_03.jpg'),
+                    require('@/assets/img/cats/cat-photo_05_04.jpg')
                 ],
                 name: 'Люси',
                 forHome: false,
@@ -114,11 +128,14 @@ export default {
             },
             {
                 id: 6,
-                checkInDate: '2024-03-25',
+                checkInDate: '2024_03_25',
                 images: [
-                    require('@/assets/img/1g-i__cat-photo_06.jpg'),
-                    require('@/assets/img/1g-i__cat-photo_06.jpg'),
-                    require('@/assets/img/1g-i__cat-photo_06.jpg')
+                    require('@/assets/img/cats/cat-photo_06_01.jpg'),
+                    require('@/assets/img/cats/cat-photo_06_02.jpg'),
+                    require('@/assets/img/cats/cat-photo_06_03.jpg'),
+                    require('@/assets/img/cats/cat-photo_06_04.jpg'),
+                    require('@/assets/img/cats/cat-photo_06_05.jpg'),
+                    require('@/assets/img/cats/cat-photo_06_06.jpg')
                 ],
                 name: 'Мурзик',
                 forHome: true,
@@ -136,11 +153,14 @@ export default {
             },
             {
                 id: 7,
-                checkInDate: '2023-10-03',
+                checkInDate: '2023_10_03',
                 images: [
-                    require('@/assets/img/1g-i__cat-photo_07.jpg'),
-                    require('@/assets/img/1g-i__cat-photo_07.jpg'),
-                    require('@/assets/img/1g-i__cat-photo_07.jpg')
+                    require('@/assets/img/cats/cat-photo_07_01.jpg'),
+                    require('@/assets/img/cats/cat-photo_07_02.jpg'),
+                    require('@/assets/img/cats/cat-photo_07_03.jpg'),
+                    require('@/assets/img/cats/cat-photo_07_04.jpg'),
+                    require('@/assets/img/cats/cat-photo_07_05.jpg'),
+                    require('@/assets/img/cats/cat-photo_07_06.jpg')
                 ],
                 name: 'Белка',
                 forHome: true,
@@ -158,11 +178,15 @@ export default {
             },
             {
                 id: 8,
-                checkInDate: '2024-02-03',
+                checkInDate: '2024_02_03',
                 images: [
-                    require('@/assets/img/1g-i__cat-photo_08.jpg'),
-                    require('@/assets/img/1g-i__cat-photo_08.jpg'),
-                    require('@/assets/img/1g-i__cat-photo_08.jpg')
+                    require('@/assets/img/cats/cat-photo_08_01.jpg'),
+                    require('@/assets/img/cats/cat-photo_08_02.jpg'),
+                    require('@/assets/img/cats/cat-photo_08_03.jpg'),
+                    require('@/assets/img/cats/cat-photo_08_04.jpg'),
+                    require('@/assets/img/cats/cat-photo_08_05.jpg'),
+                    require('@/assets/img/cats/cat-photo_08_06.jpg'),
+                    require('@/assets/img/cats/cat-photo_08_07.jpg')
                 ],
                 name: 'Рыжик',
                 forHome: true,
@@ -180,11 +204,14 @@ export default {
             },
             {
                 id: 9,
-                checkInDate: '2024-01-07',
+                checkInDate: '2024_01_07',
                 images: [
-                    require('@/assets/img/1g-i__cat-photo_09.jpg'),
-                    require('@/assets/img/1g-i__cat-photo_09.jpg'),
-                    require('@/assets/img/1g-i__cat-photo_09.jpg')
+                    require('@/assets/img/cats/cat-photo_09_01.jpg'),
+                    require('@/assets/img/cats/cat-photo_09_02.jpg'),
+                    require('@/assets/img/cats/cat-photo_09_03.jpg'),
+                    require('@/assets/img/cats/cat-photo_09_04.jpg'),
+                    require('@/assets/img/cats/cat-photo_09_05.jpg'),
+                    require('@/assets/img/cats/cat-photo_09_06.jpg')
                 ],
                 name: 'Черныш',
                 forHome: true,
@@ -202,11 +229,14 @@ export default {
             },
             {
                 id: 10,
-                checkInDate: '2024-01-07',
+                checkInDate: '2024_01_07',
                 images: [
-                    require('@/assets/img/1g-i__cat-photo_10.jpg'),
-                    require('@/assets/img/1g-i__cat-photo_10.jpg'),
-                    require('@/assets/img/1g-i__cat-photo_10.jpg')
+                    require('@/assets/img/cats/cat-photo_10_01.jpg'),
+                    require('@/assets/img/cats/cat-photo_10_02.jpg'),
+                    require('@/assets/img/cats/cat-photo_10_03.jpg'),
+                    require('@/assets/img/cats/cat-photo_10_04.jpg'),
+                    require('@/assets/img/cats/cat-photo_10_05.jpg'),
+                    require('@/assets/img/cats/cat-photo_10_06.jpg')
                 ],
                 name: 'Маша',
                 forHome: true,
@@ -224,11 +254,14 @@ export default {
             },
             {
                 id: 11,
-                checkInDate: '2024-01-07',
+                checkInDate: '2024_01_07',
                 images: [
-                    require('@/assets/img/1g-i__cat-photo_11.jpg'),
-                    require('@/assets/img/1g-i__cat-photo_11.jpg'),
-                    require('@/assets/img/1g-i__cat-photo_11.jpg')
+                    require('@/assets/img/cats/cat-photo_11_01.jpg'),
+                    require('@/assets/img/cats/cat-photo_11_02.jpg'),
+                    require('@/assets/img/cats/cat-photo_11_03.jpg'),
+                    require('@/assets/img/cats/cat-photo_11_04.jpg'),
+                    require('@/assets/img/cats/cat-photo_11_05.jpg'),
+                    require('@/assets/img/cats/cat-photo_11_06.jpg')
                 ],
                 name: 'Том',
                 forHome: true,
@@ -246,11 +279,14 @@ export default {
             },
             {
                 id: 12,
-                checkInDate: '2023-12-05',
+                checkInDate: '2023_12_05',
                 images: [
-                    require('@/assets/img/1g-i__cat-photo_12.jpg'),
-                    require('@/assets/img/1g-i__cat-photo_12.jpg'),
-                    require('@/assets/img/1g-i__cat-photo_12.jpg')
+                    require('@/assets/img/cats/cat-photo_12_01.jpg'),
+                    require('@/assets/img/cats/cat-photo_12_02.jpg'),
+                    require('@/assets/img/cats/cat-photo_12_03.jpg'),
+                    require('@/assets/img/cats/cat-photo_12_04.jpg'),
+                    require('@/assets/img/cats/cat-photo_12_05.jpg'),
+                    require('@/assets/img/cats/cat-photo_12_06.jpg')
                 ],
                 name: 'Сима',
                 forHome: true,

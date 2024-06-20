@@ -10,9 +10,31 @@
       border-bottom-right-radius: $radius
     @else if $position == bl
       border-bottom-left-radius: $radius
+    @else if $position == top
+      border-top-left-radius: $radius
+      border-top-right-radius: $radius
+    @else if $position == bot
+      border-bottom-left-radius: $radius
+      border-bottom-right-radius: $radius
+
     @else if $position == al
       border-radius: $radius
     @else if $position == none
+      border-bottom-left-radius: 0
+
+@mixin any-radius($positions)
+  @each $position, $radius in $positions
+    @if $position == 'tl'
+      border-top-left-radius: $radius
+    @else if $position == 'tr'
+      border-top-right-radius: $radius
+    @else if $position == 'br'
+      border-bottom-right-radius: $radius
+    @else if $position == 'bl'
+      border-bottom-left-radius: $radius
+    @else if $position == 'al'
+      border-radius: $radius
+    @else if $position == 'none'
       border-bottom-left-radius: 0
 
 @mixin box-shadow ($type)
@@ -36,3 +58,11 @@
       background-color: $esBlackTransparency
       backdrop-filter: blur(20px)
       -webkit-backdrop-filter: blur(20px)
+    @if $color == modal
+      background-color: $esModalTransparency
+      backdrop-filter: blur(20px)
+      -webkit-backdrop-filter: blur(20px)
+
+@mixin img-placer
+  height: auto
+  width: 100%

@@ -3,7 +3,7 @@
 @import "mixins"
 @import "cat-card"
 @import "cat-card_big"
-@import "article"
+@import "sigle-cat"
 
 
 .center
@@ -12,8 +12,16 @@
 
 body
   font-family: $basic-family, sans-serif
-  padding-top: 100px
   background-color: $colorWhite
+#app
+  margin-top: 100px
+  display: flex
+  flex-direction: column
+  min-height: calc(100vh - 115px)
+
+.content
+  flex: 1 0 auto
+  margin-bottom: 100px
 
 h2
   font: 700 52px / 110% $basic-family
@@ -23,55 +31,15 @@ h2
 button
   transition: all 0.3s ease-out
 
-.flex-v_centered
-  display: flex
-  flex-direction: column
-  align-items: center
-  justify-content: flex-start
-
-.gap_24
-  gap: 24px
-
-.hover-img
-  transition: all 0.3s ease-in
-
-.icon-box
-  width: 40px
-  height: 40px
-  display: flex
-  align-items: center
-  justify-content: center
-
-.span-columns
-  grid-column: 1 / -1
-  &__2
-    grid-column: span 2
+.disabled-button
+  opacity: .5
+  cursor: not-allowed
+  pointer-events: none
 
 
-.def-paddings
-  padding-top: 80px
+//В самом низу сложены модифицирующие классы
 
-.center_content
-  margin-left: auto
-  margin-right: auto
 
-.btn
-  &_big-black
-    background-color: $colorBlack
-    display: flex
-    align-items: center
-    justify-content: center
-    flex-direction: row
-    @include border-radius((tl, tr, bl), $radius)
-    padding: 32px
-    width: 40%
-    height: 88px
-    font-weight: 700
-    font-size: 24px
-    letter-spacing: 0.01em
-    text-align: center
-    color: $colorWhite
-    transition: transform 0.3s ease-in, box-shadow 0.3s ease-in-out
 
 //Общие стили для всего сайта
 .page-title
@@ -233,6 +201,15 @@ button
   grid-template-columns: repeat(6, minmax(140px, 180px))
   column-gap: 60px
   row-gap: 60px
+  &__image-box
+    column-span: 2
+    display: flex
+    min-width: 330px
+    height: 100%
+    overflow: hidden
+    flex-direction: column
+  &__image
+    @include img-placer
 
 
 //Стили для фильтров (выпадающие меню)
@@ -247,7 +224,7 @@ button
     flex-wrap: wrap
 
   &-label
-    margin-left: 20px
+    margin-left: 16px
     color: $colorGrayDark
     font-size: 14px
     font-weight: 400
@@ -314,3 +291,77 @@ button
 //.filter-menu.active-filter
 //  background-color: $colorBlack
 //  color: $colorWhite /* Optional: make the text color white for better contrast */
+
+
+//Модификаторы
+.flex-v_centered
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: flex-start
+
+.gap
+  &_24
+    gap: 24px
+  &_16-grid
+    column-gap: 16px
+    row-gap: 16px
+
+.hover-img
+  transition: all 0.3s ease-in
+
+.hover-shadow
+  transition: all 0.3s ease-in
+  &:hover
+    @include box-shadow(def)
+    pointer-events: auto
+
+.icon-box
+  width: 40px
+  height: 40px
+  display: flex
+  align-items: center
+  justify-content: center
+
+.span-columns
+  grid-column: 1 / -1
+  &__2
+    grid-column: span 2
+
+
+.def-paddings
+  padding-top: 80px
+
+.center_content
+  margin-left: auto
+  margin-right: auto
+
+.btn
+  &_big-black
+    background-color: $colorBlack
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: row
+    @include border-radius((tl, tr, bl), $radius)
+    padding: 32px
+    width: 40%
+    height: 88px
+    font-weight: 700
+    font-size: 24px
+    letter-spacing: 0.01em
+    text-align: center
+    color: $colorWhite
+    transition: transform 0.3s ease-in, box-shadow 0.3s ease-in-out
+
+.footer
+  flex-shrink: 0
+
+  border-top: 2px solid $pureWhite
+  @include box-shadow(def)
+  padding-top: 80px
+  padding-bottom: 120px
+  display: flex
+  flex-direction: row
+  gap: 80px
+  width: 100%
