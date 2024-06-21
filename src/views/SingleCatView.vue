@@ -75,6 +75,16 @@
 
   </section>
 
+  <section class="center sigle-cat__description def-paddings">
+    <p>Если вам понравился котенок и вы хотите посмотреть на него, взять домой или помочь, свяжитесь с одним из наших волонтеров.</p>
+    <p>Что нужно знать, прежде чем взять животное домой.</p>
+    <router-link :to="{ name: 'helpful' }" class="span-columns">
+      <button class="span-columns btn_big-black fit-content mt-80px" @mouseover="expandAndShadow"
+              @mouseleave="shrinkAndNoShadow">Информация для будущего хозяина
+      </button>
+    </router-link>
+  </section>
+
   <ModalWindow v-if="isModalOpen && cat" :cat="cat" :initialImageIndex="selectedImageIndex"
                @close="closeModal"></ModalWindow>
 </template>
