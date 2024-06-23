@@ -44,7 +44,7 @@
         <div class="help-wanted__box" v-if="cat.helpWanted">
           <p>{{ cat.helpDescription }}</p>
         </div>
-        <div  class="description">
+        <div  :class="['description', {'description_bigger': !cat.helpWanted}]">
         {{ cat.description }}
         </div>
       </div>

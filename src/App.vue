@@ -79,8 +79,4 @@
 <style lang="sass">
 template
   display: flex !important
-
 </style>
-<script>
-
-</script>

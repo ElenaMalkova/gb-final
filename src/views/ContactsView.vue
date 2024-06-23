@@ -2,9 +2,7 @@
   <h1>Здесь страница всех Контактов</h1>
 </template>
 
-<style scoped>
 
-</style>
 
 <script>
 import {mapState} from 'vuex';

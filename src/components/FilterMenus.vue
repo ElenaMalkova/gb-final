@@ -181,7 +181,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-/* ваш CSS */
-</style>
