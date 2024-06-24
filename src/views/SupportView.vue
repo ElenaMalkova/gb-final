@@ -1,22 +1,27 @@
 <template>
-  <h1>Здесь страница всех Поддержки котодома</h1>
+  <div class="center mt-80px">
+    <h1>Здесь страница всех Поддержки котодома</h1>
+  </div>
 </template>
 
 
-
 <script>
-import {mapState} from 'vuex';
+  import {mapGetters} from 'vuex';
+  import ArticleTemplate from "@/components/ArticleTemplate.vue";
 
-
-export default {
+  export default {
   name: 'SupportView',
-
   components: {
-  },
-  computed: {
-  },
-
-  methods: {
-  },
+  ArticleTemplate,
+},
+    computed: {
+      ...mapGetters(['getArticleByPagePlace']),
+      homeArticle1() {
+        return this.getArticleByPagePlace('home', 1);
+      },
+      homeArticle2() {
+        return this.getArticleByPagePlace('home', 2);
+      },
+    },
 }
 </script>

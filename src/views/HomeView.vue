@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <section class="center">
+  <div class="center">
+    <section>
       <div class="main-banner">
         <div class="main-banner__text-box">
           <h1 class="main-banner__heading">Помощь бездомным кошачьим на территории поселка Отрадное. Спасение,
@@ -21,25 +21,42 @@
         </button>
       </router-link>
     </section>
+
+    <!-- Текст Помочь котодому -->
+    <section class="article mt-80px">
+      <ArticleTemplate :articles="[homeArticle1]" v-if="homeArticle1" />
+      <p v-else>Статья не найдена</p>
+    </section>
+
+    <!-- Что делать? -->
+    <section class="article mt-80px">
+      <ArticleTemplate :articles="[homeArticle2]" v-if="homeArticle2" />
+      <p v-else>Статья не найдена</p>
+    </section>
   </div>
 </template>
 
 <script>
-import {mapGetters, mapState} from 'vuex';
+import { mapGetters } from 'vuex';
 import CatCard from '@/components/CatCard.vue';
 import buttonEffectsMixin from "@/components/mixins/buttonEffectsMixin";
+import ArticleTemplate from "@/components/ArticleTemplate.vue";
 
 export default {
-
   name: 'HomeView',
   mixins: [buttonEffectsMixin],
   components: {
     CatCard,
+    ArticleTemplate,
   },
   computed: {
-    ...mapGetters([
-      'getRandomCats', // map `this.getRandomCats` to `this.$store.getters.getRandomCats`
-    ]),
+    ...mapGetters(['getRandomCats', 'getArticleByPagePlace']),
+    homeArticle1() {
+      return this.getArticleByPagePlace('home', 1);
+    },
+    homeArticle2() {
+      return this.getArticleByPagePlace('home', 2);
+    },
   },
 }
 </script>
