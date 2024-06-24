@@ -2,6 +2,8 @@
 
 import { createStore } from 'vuex'
 import cats from './modules/cat-cards.js'
+import articles from './modules/articles';
+
 
 const store = createStore({
   state: {},
@@ -10,6 +12,7 @@ const store = createStore({
   actions: {},
   modules: {
     cats,
+    articles
   },
 })
 

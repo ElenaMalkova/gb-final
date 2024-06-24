@@ -1,25 +1,17 @@
+<template>
+  <div v-for="article in articles" :key="article.id">
+    <h2 class="article__header">{{ article.heading }}</h2>
+    <div class="article__text" v-html="article.text"></div>
+  </div>
+</template>
+
 <script>
-
-import articles from "../store/modules/articles";
-
 export default {
-  computed: {
-    articles() {
-      return articles
-    }
-  },
-
   props: {
-    cat: Object
-  },
-  methods: {
+    articles: {
+      type: Array,
+      required: true,
+    },
   },
 }
 </script>
-
-<template>
-<h3>
-  {{ articles.heading}}
-</h3>
-</template>
-
